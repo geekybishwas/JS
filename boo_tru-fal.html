@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True and False Value</title>
+</head>
+
+<body>
+    <script>
+        // 5 falsy values: 0, '' , undefined, null, NaN
+        console.log(Boolean(0));
+        console.log(Boolean(undefined));
+        console.log(Boolean('Bishwas'));
+        console.log(Boolean({}));
+        console.log(Boolean(''));
+
+        // Type coercion exist here , JS change the vslue to a boolean itself
+        const money = 100;
+        if (money)
+            console.log(`You have ${money}, don't spend it all`);
+        else
+            console.log(`You have ${money}, get a better job`);
+
+        let height = 0;
+        if (height)
+            console.log(`Your height is defined`);
+        else
+            console.log(`Height is undefined`);
+    </script>
+</body>
+
+</html>

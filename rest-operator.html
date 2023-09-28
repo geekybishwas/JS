@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rest Operator</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        const hotel = {
+            name: "Cloud9 Hotel",
+            address: ["LakeSide ,Pokhara", "Nadipur -3", "Zero"],
+            items: ["Pizza", "Burger", ["Chicken Sousage", "Buff Sousage"]],
+            view: ["Lake", "Town", "Hills", "Mountains"],
+            order: function(items1index, item2index, item3index) {
+                // Retur an array
+                return [
+                    this.items[items1index],
+                    this.items[item2index],
+                    this.items[item3index],
+                ];
+            },
+            openingHours: {
+                thus: {
+                    open: 12,
+                    close: 22,
+                },
+                fri: {
+                    open: 11,
+                    close: 23,
+                },
+                sat: {
+                    open: 0,
+                    close: 24,
+                },
+            },
+            // Default
+            orderDelivery: function({
+                order1 = 1,
+                order2 = 2,
+                time = "0.00",
+                address = this.address[0],
+            }) {
+                console.log(order1, order2, time, address);
+                console.log(order2);
+                console.log(
+                    `Order is ${this.items[order1]} and ${this.items[order2]} at time ${time}`
+                );
+            },
+            orderMomo: function(ind1, ind2, ind3) {
+                console.log(
+                    `Here is your delicious momo with ${ind1},${ind2},${ind3}`
+                );
+            },
+            orderPizza: function(mainIngredient, ...otherIngredients) {
+                console.log(mainIngredient);
+                console.log(otherIngredients);
+            },
+        };
+
+        // DESCRUCTING
+        // SPREAD , because on RIGHT side of =
+        const arr = [1, 2, ...[3, 4]];
+        console.log(arr);
+
+        //REST, because on LEFT side of =
+        const [a, b, ...others] = [1, 2, 3, 4, 5];
+        console.log(a, b, others);
+
+        const [pizza, , cake, ...otherFood] = [
+            "pizza",
+            "juice",
+            "cake",
+            "waterMelon",
+            ...hotel.items,
+        ];
+        console.log(pizza, cake, otherFood);
+        // Objects
+        const {
+            sat,
+            ...weekDays
+        } = hotel.openingHours;
+        console.log(sat, weekDays);
+
+        // Functions
+        // SPREAD operator expands the array and pass as an individual arguments to the function
+        // REST operator compress the number of arbitary arguments and pass them in a function as an pack of arguments stored in array
+        const add = function(...numbers /*Here we pack the values*/ ) {
+            console.log(numbers);
+            let sum = 0;
+            for (let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+                console.log("In loop");
+            }
+            console.log("Outside loop");
+            console.log(sum);
+            console.log(typeof sum);
+        };
+        /*COMMENT
+           Spread operator unpack the array into arguments which type is number whereas REST operator pack the arbitary arguments into an arrray and return and array.*/
+        add(2, 3);
+        add(5, 3, 6, 2);
+        add(4, 5, 3, 6, 10);
+        const x = [21, 53, 2];
+        add(...x); //Here we unpack the value, Its a spread operator don.t get confuse ,Its same as (x[0],x[1],x[2])
+        console.log(...x);
+        // let y;
+        // [...y] = [...x]; // REST=SPREAD
+        // console.log(typeof y);
+        // console.log(y);
+        // add(...y);
+        hotel.orderPizza("mushroom", "onion", "meat", "spinach");
+        hotel.orderPizza("meat");
+    </script>
+</body>
+
+</html>

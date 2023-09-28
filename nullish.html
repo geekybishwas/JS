@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nullish Coalescing Operator</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        const noOfGuest = 0;
+        const totalGuest = noOfGuest || 20;
+        console.log(totalGuest);
+
+        // Nullish operator (??) : null and undefined  (NOT 0 or '')
+        // Nullish operator takes 0 and empty string as a turly value and takes null and undefiend as falsy value
+        const totalGuest1 = noOfGuest ?? 10;
+        console.log(totalGuest1);
+    </script>
+</body>
+
+</html>

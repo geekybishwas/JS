@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let arr = ["e", "f", "g", "h", "i"];
+            console.log(Math.abs(-100)); // It does actually remove negative sign
+
+            //for-of
+            // for (const ar of arr) console.log(ar);
+            for (const [index, ar] of arr.entries()) {
+                console.log(`${index} : ${ar}`);
+            }
+
+            console.log("---------");
+
+            //for-each ->Easier to get index of the element->we cannot break loodping in forEach
+            arr.forEach(function (ar, i, array) {
+                console.log(`${i} : ${ar}`);
+            });
+
+            //forEach works in Maps
+            const currency = new Map([
+                ["USD", "United States"],
+                ["EUR", "Euro"],
+                ["NP", "Nepal"],
+                ["IN", "India"],
+            ]);
+
+            currency.forEach(function (value, key, arr) {
+                console.log(`${key}: ${value}`);
+            });
+
+            //forEach works in Set
+            //Set doesn't have indexes,keys
+            const currencySet = new Set([
+                "USD",
+                "EURO",
+                "NRS",
+                "IN",
+                "EURO",
+                "NEP",
+            ]);
+            console.log(currencySet);
+            currencySet.forEach(function (value, value, arr) {
+                console.log(`${value}: ${value}`);
+                //Set doesn't have key,value
+            });
+        </script>
+    </body>
+</html>

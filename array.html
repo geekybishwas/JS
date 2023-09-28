@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+</head>
+
+<body>
+    <script>
+        // Another way of declaring array
+        const years = new Array(1992, 1993, 1333, 1990);
+        // console.log(years.length);
+        // console.log(years[0])
+
+        years[0] = "Bishwas";
+        console.log(years);
+        console.log(years[years.length - 1]);
+
+        const firstName = "Bishwas";
+        const me = [firstName, "Bhattarai", 2022 - 2003, years];
+        console.log(me);
+        console.log(me[me.length - 1][1]);
+
+        const friends = ["Bishwas", "Bimal", "Bipin", "Fardin"];
+        console.log(friends);
+
+        // To add elements at the end of array we simply use arrya_name.push("Value")
+        const len = friends.push("Datey"); // This friends.push returns something ie (total lenght of the array)
+        console.log(len);
+
+        // To add elements at the begining of the array we simply use unsift('Value') and it also returns the lenght of the array
+        friends.unshift("Pawan");
+        console.log(friends);
+
+        // To remove last elements of the array we use pop() and by using pop it remoces the last elements of the array and the pop funtion return the removed elements from an array
+        console.log(friends.pop()); // Last elements
+        console.log(friends);
+
+        // To remove first elements of the array we use shift() and by using pop it remoces the first elements of the array and the shift funtion return the removed elements from an array
+        console.log(friends.shift());
+        console.log(friends);
+
+        console.log(friends.indexOf("Bishwas"));
+
+        console.log(friends.indexOf("Bob")); // It returns -1 beacuse bob isn't in the friends array
+
+        //Includes fucntion is similar to indexOf which returns a boolean value true and false if the elements is in the arrya >ture and isn't in the array >false
+        console.log(friends.includes("Bishwas"));
+
+        console.log(friends.includes("Bob"));
+
+        if (friends.includes("Fardin")) {
+            console.log("You have a friend called Fardin");
+        }
+    </script>
+</body>
+
+</html>

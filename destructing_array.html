@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Destructing Array</title>
+    </head>
+
+    <body>
+        <script>
+            const hotel = {
+                name: "Cloud9 Hotel",
+                address: ["LakeSide", "Pokhara", "Nadipur -3", "Zero"],
+                items: ["Pizza", "Burger", ["Chicken Sousage", "Buff Sousage"]],
+                order: function (items1index, item2index, item3index) {
+                    // Retur an array
+                    return [
+                        this.items[items1index],
+                        this.items[item2index],
+                        this.items[item3index],
+                    ];
+                },
+            };
+            // Poor way of retreving elements from an array
+            const arr = [2, 4, 5];
+            let a = arr[0];
+            let b = arr[1];
+            let c = arr[2];
+            // console.log(a, b, c);
+            console.log(a, b);
+
+            // Destructing array;
+            // This is the way of retreving elements from an arry by the use of destructing.
+
+            let [address1, address2, address3] = hotel.address;
+            console.log(address1, address2, address3);
+            console.log(hotel.address);
+
+            // For swap the value , we use.
+
+            let temp = a;
+            a = b;
+            b = temp;
+            console.log(a, b);
+
+            /*But incase of swaping value in destructing, we use like.
+        We are changing the address */
+
+            [address3, address2, address1] = [address1, address2, address3];
+            console.log(address1, address2, address3);
+
+            /* Destructing from a nested array,
+        here item1=Pizza , item2 is skipped by placing nothing, item3=array["Chicken Sousage","Buff Sousage"] */
+
+            const [item1, , item3] = hotel.items;
+            console.log(item1, item3);
+
+            /* Just like nested array , we also have nested destructing */
+            const [item_1, , [item_3_1, item_3_2]] = hotel.items; // This is called nested destructing.
+            console.log(item_1, item_3_1, item_3_2);
+
+            // Passing index to the method order or function of a object
+            const [ordering1, ordering2, ordering3] = hotel.order(0, 1, 2);
+            console.log(ordering3, ordering2, ordering1);
+            // console.log(ordering);
+
+            const nes = [2, 4, [5, 6]]; //Nested array
+            const [i, , [j, k]] = nes; // Nested destructing
+            console.log(i, j, k);
+
+            /*Default value for variables in case we dont know the length of array*/
+            const [p, q, r] = [8, 9];
+            console.log(p, 1, r); // We get undefined in the third one r
+            // However to resolve this we use default values like
+            const [l = 1, m = 1, n = 1] = [3, 4];
+            console.log(l, m, n); // Here in n we dont get undefined coz it has a default value of 1 at staring
+        </script>
+    </body>
+</html>

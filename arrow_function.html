@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function in JS</title>
+</head>
+
+<body>
+    <script>
+        // Arrow Function
+
+        // Arrow function is a special type of fucntion which doesnot use a return keyword if the function is a one line of code or a function has to return only value
+
+        //Variable = funtion with no name here height1 is a argumn=ent and it return heigh1.
+
+        const calHeight1 = height1 => height1;
+        const showHeight1 = calHeight1(5);
+        console.log(showHeight1);
+
+        // Arrow function with two arguments
+        // Here age and inche is a arguments of a function of no name.
+
+        const calHeight2 = (firstName, height2, inche) => {
+            const heightTotal = height2 + "'" + inche;
+            console.log(heightTotal);
+            return `${firstName} your height is ${heightTotal}.`;
+        }
+        console.log(calHeight2('Bishwas', 5, 7));
+
+
+        // Funtion calling another function by using arrow function .
+        const cutPieces = fruit => fruit * 4;
+        const fruitProcessor = (apples, oranges) => {
+            const applesPieces = cutPieces(apples);
+            const orangePieces = cutPieces(oranges);
+            const juice = `Juice with ${applesPieces} pieces of apples and ${orangePieces} pieces of orange`;
+            return juice;
+        }
+        console.log(fruitProcessor(2, 4));
+    </script>
+</body>
+
+</html>

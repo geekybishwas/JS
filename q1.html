@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questions of array</title>
+</head>
+
+<body>
+    <script>
+        const temp = [3, -2 - 6, -1, "error", 9, 13, 17, 15, 14, 9, 5];
+        const calcTemp = function(temps) {
+            let max, min;
+            max = min = temps[0];
+            for (let i = 0; i < temps.length; i++) {
+                if (temps[i] !== "number") {
+                    if (max < temps[i]) {
+                        max = temps[i];
+                    } else if (min > temps[i]) {
+                        min = temps[i];
+                    }
+                } else {
+                    continue;
+                }
+            }
+            console.log(max);
+            console.log(min);
+            return max - min;
+        };
+        console.log(calcTemp(temp));
+        // Two merge two array concat() method is used like arrya1.concat(array2) this return a new array of array1 and array2
+    </script>
+</body>
+
+</html>

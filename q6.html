@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const julia = [3, 5, 2, 12, 7];
+            julia.forEach(function (julias) {
+                console.log(julias);
+                if (julias <= 3) {
+                    console.log(`It's a puppy`);
+                } else console.log(`It's a adult`);
+            });
+            const kate = [4, 1, 15, 8, 3];
+            kate.forEach(function (kates) {
+                console.log(kates);
+                if (kates <= 3) {
+                    console.log(`It's a puppy`);
+                } else console.log(`It's a adult`);
+            });
+            const juliaCopy = julia.splice(1, 2);
+            console.log(juliaCopy);
+            const kateCopy = kate.splice(1, 2);
+            console.log(kateCopy);
+
+            // const correcttedAge = [...juliaCopy, ...kateCopy];
+            const correcttedAge = juliaCopy.concat(kateCopy);
+
+            correcttedAge.forEach(function (corrected, i) {
+                const adult = `Dog number ${
+                    i + 1
+                } is an adult, and is ${corrected} years old`;
+                const puppy = `Dog number ${i + 1} is still a puppy.`;
+                const check = corrected > 3 ? adult : puppy;
+                console.log(check);
+            });
+            console.log(correcttedAge);
+        </script>
+    </body>
+</html>

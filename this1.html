@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const me = {
+                name: "Cloud9",
+                age: 19,
+                hobbies: [],
+                about(lastName, program) {
+                    console.log(
+                        `${this.name} ${lastName} is ${this.age} years old and he is a ${program} engineer`
+                    );
+                    this.hobbies.push({ name: `${this.name}` });
+                },
+            };
+            me.about("Bhattarai", "Software");
+            me.about("Bhattarai", "Software");
+
+            //cALL METHOD
+            const other = {
+                name: "Lolo",
+                age: 20,
+                hobbies: [],
+            };
+            const about = me.about;
+            about.call(other, "Tharu", "Csit");
+            console.log(other);
+            about.call(me, "Kadm", "Bs");
+            console.log(me);
+
+            //Apply method
+            const meData = ["Tharu", "Bk"];
+            about.apply(me, meData);
+            console.log(me);
+            about.call(me, ...meData);
+
+            //Bind Keyword
+            const abouto = about.bind(other);
+            abouto("aka", "as");
+            const aboutM = about.bind(me);
+            aboutM("ada", "ad");
+
+            const abouto1 = about.bind(other, "Bishwas");
+            abouto1("Bha");
+        </script>
+    </body>
+</html>

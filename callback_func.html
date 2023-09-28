@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const inputWord = function (str) {
+                return str.replace(/ /g, " ").toLowerCase();
+            };
+
+            const inputSentc = function (str) {
+                const [first, ...last] = str.split(" ");
+                console.log(first, last.join(" "));
+                return [first.toUpperCase(), ...last].join(" ");
+            };
+
+            const transform = function (str, fn) {
+                console.log(`Before transformed :${str}`);
+                console.log(`After transformed : ${fn(str)}`);
+                console.log(
+                    `Funtion that tansformed : ${fn.name} ${fn.properties}`
+                );
+            };
+
+            transform("Raj Gujrat Tori", inputSentc);
+            transform("Raj Gujrat", inputSentc);
+
+            //Functions returning functions
+            const greet = function (greeting) {
+                return function (name) {
+                    console.log(`${greeting} ${name}`);
+                };
+            };
+            const greeter = greet("Hey");
+            greeter("Bishwas");
+            greeter("Rabin");
+            // Another way of calling returning function
+            greet("Hy")("Ram");
+
+            //With Arrow Functions
+            const greetArr = (greeting) => (name) =>
+                console.log(`${greeting} ${name}`);
+            greetArr("Heyy")("Groot");
+
+            //Funtion call
+            const greet1 = function (greeting) {
+                return function (name) {
+                    console.log(`${greeting} ${name}`);
+                };
+            };
+
+            //Way of returning function
+            const gretter = greet1("Hey");
+            gretter("Biswas");
+
+            greet1("Gey")("Ll");
+        </script>
+    </body>
+</html>

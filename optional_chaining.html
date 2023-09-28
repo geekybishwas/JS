@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optinal Chaining</title>
+</head>
+
+<body>
+    <script>
+        const openingHours = {
+            thus: {
+                open: 12,
+                close: 22,
+            },
+
+            fri: {
+                open: 11,
+                close: 23,
+            },
+            sat: {
+                open: 0,
+                close: 24,
+            },
+            order: function (...numbers) {
+                console.log(...numbers);
+
+            }
+        };
+        console.log(openingHours?.mon?.open);
+        console.log(openingHours?.thus?.open);
+        // Methods
+        // const a = 0;
+        const b = ['Bishwas', 'Bhattarai', 'Gces'];
+        // console.log()
+        // console.log(undefined || 'Bishwas' || 23)
+        // console.log('no' && 'Bishwas')
+        // console.log(a ?? 'Variable is 0');
+        // console.log(a || 'Variable is 0')
+        openingHours.order?.(b)
+
+        // Array
+        // const users = [{ name: "Bishwas", email: 'coolbishwash07@gmail.com', password: 'BishwashBhattarai', age: 19 }];
+        const users = [];
+        console.log(users[0]);
+        console.log(users[0]?.name ?? 'User dont exist');
+    </script>
+</body>
+
+</html>

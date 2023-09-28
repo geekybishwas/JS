@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const flights =
+                "_Delayed_Departure;fao9293929;txl2323232;11:25+_Arrival;bru02939239;fao9239299;11.45+_Delayed_Arrival;hel2832838282;fao293929328428;12:05+_Departure;fao992302939;lis23232323232;12:30";
+            for (const flight of flights.split("+")) {
+                // console.log(flight);
+                const [type, from, to, time] = flight.split(";");
+                // console.log(type, from, to, time);
+                console.log(
+                    `${type.startsWith("_Delayed") ? "$ " : ""}${type
+                        .replaceAll("_", " ")
+                        .slice(1)} from ${from
+                        .slice(0, 3)
+                        .toUpperCase()} to ${to
+                        .slice(0, 3)
+                        .toUpperCase()} (${time.replace(":", "h")})`
+                );
+            }
+        </script>
+    </body>
+</html>

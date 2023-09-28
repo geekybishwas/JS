@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+    <script>
+        // Object Literal Syntax
+        // Here in below code me is a object and firstName, lastName are the property and that property stores a value.
+
+        const me = {
+            firstName: 'Bishwas',
+            lastName: 'Bhattarai',
+            age: 2022 - 2003,
+            profession: 'programmer',
+            friends: ['Bipin', 'Bhotey', 'Boka', 'Datey', 'Ram']
+        };
+
+        // To access a value from a object me we simply just write me.key(ie lastName,age)
+
+        // Here dot(.) is a opertor that goes to the oject and retrive a value of that object.
+
+        console.log(me.age);
+        console.log(me.friends);
+        //Bracket Operator
+        console.log(me['firstName']);
+
+        const nameKey = 'Name';
+        console.log(me['last' + nameKey]);
+
+        const user_need = prompt('What do you want to know about me like firstName,lastName,age,profession');
+        // console.log(user_need);
+        // console.log(me[user_need]);
+        if (me[user_need]) {
+            console.log(user_need);
+            console.log(me[user_need]);
+        } else alert('SORRY');
+        me.location = 'Nepal';
+        me['insta'] = 'imbiswas07';
+        console.log(me);
+        // // Print Bishwas has 5 friends and and his best friend is Ram.
+        console.log(`${me.firstName} has ${me.friends.length} friends and his best friend is ${me.friends[4]}`)
+    </script>
+</body>
+
+</html>

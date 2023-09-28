@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Primitive and Reference types in js</title>
+    </head>
+
+    <body>
+        <script>
+            // Primitive types
+
+            let m = 12;
+            let n = m;
+            m = 13;
+            console.log(m);
+            console.log(n);
+            const me = {
+                name: "Bishwas",
+                age: 17,
+            };
+
+            // Reference types
+
+            const friend = me;
+            me.age = 27;
+            console.log(me);
+            console.log(friend);
+
+            // Copying Objects
+            const friend2 = {
+                name: "Bishwas",
+                age: 17,
+                family: ["R", "B", "B"],
+            };
+            const friend2Copy = Object.assign({}, friend2); // Merges two objects as one and return the merged objects.
+            friend2Copy.name = "Cloud9";
+            friend2Copy.family.push("P");
+            console.log("Before changing", friend2);
+            console.log("After Changing", friend2Copy);
+        </script>
+    </body>
+</html>

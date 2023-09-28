@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quality Operator</title>
+</head>
+
+<body>
+    <script>
+        // Double equal == perform type coercion and it is also called loose equality operator.
+        // Example
+
+        const age = "18";
+
+        // Here a string 18 is compared to the number 18 and string and number is not equal whether they are same , but when compared ,it show true result and it means that double equal perform type coercion where a string is changed into number by JS itself  and comapred to the given condition.
+
+        if (age == 18) console.log(`You are ${age} years old`);
+        else console.log(`You are less than ${age} years old`);
+
+        // Ttiple equal ==== doesn't perform type coercion and it is also called strict equality operator.
+        // Triple equalto checks the datatype , value and when identical then  produce true result whereas double equalto checks only value not datatype
+        // Example
+
+        const height = 18;
+        if (height === 18)
+            console.log(`You are ${height} years old, congrats dude`);
+        else
+            console.log(
+                `You are still a kid and you are below ${height} years old`
+            );
+
+        let firstName = prompt("What's your first name");
+        if (firstName) console.log(`Hey ${firstName} , how are you !`);
+        else console.log(`You dont input any name?`);
+    </script>
+</body>
+
+</html>

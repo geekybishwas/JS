@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Destructing Objects</title>
+    </head>
+
+    <body>
+        <script>
+            "use strict";
+            const weekends = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+            const openingHours = {
+                [weekends[3]]: {
+                    open: 12,
+                    close: 22,
+                },
+                fri: {
+                    open: 11,
+                    close: 23,
+                },
+                [weekends[weekends.length - 2]]: {
+                    open: 0,
+                    close: 24,
+                },
+            };
+
+            const hotel = {
+                name: "Cloud9 Hotel",
+                address: ["LakeSide ,Pokhara", "Nadipur -3", "Zero"],
+                items: ["Pizza", "Burger", ["Chicken Sousage", "Buff Sousage"]],
+                view: ["Lake", "Town", "Hills", "Mountains"],
+                order: function (items1index, item2index, item3index) {
+                    // Retur an array
+                    return [
+                        this.items[items1index],
+                        this.items[item2index],
+                        this.items[item3index],
+                    ];
+                },
+                // Enhanced ES6 Features
+                openingHours,
+                // Default
+                orderDelivery({
+                    order1 = 1,
+                    order2 = 2,
+                    time = "0.00",
+                    address = this.address[0],
+                }) {
+                    console.log(order1, order2, time, address);
+                    console.log(order2);
+                    console.log(
+                        `Order is ${this.items[order1]} and ${this.items[order2]} at time ${time}`
+                    );
+                },
+            };
+            // With the help optional chaining
+            console.log(hotel.openingHours?.mon?.open);
+            console.log(hotel.openingHours?.thu?.open);
+
+            console.log(hotel);
+            // Passing object in a function at once
+
+            hotel.orderDelivery({
+                time: "22:30",
+                order1: 1,
+                order2: 2,
+                address: hotel.address[2],
+            });
+
+            // Passing object properties only few of them
+            hotel.orderDelivery({
+                time: "12:40",
+            });
+            // Storing object elements in a key name .
+            const { name, address, items } = hotel;
+            console.log(name, address, items);
+
+            // Storing object elements other than in obejct key name\
+            const {
+                name: fullname,
+                address: addresses,
+                items: itemOfHotel,
+            } = hotel;
+            console.log(fullname, addresses, itemOfHotel);
+
+            // Default
+            const { menu = [], view: views = [] } = hotel;
+            console.log(menu, views);
+            //Mutating (swapping)
+            let a = 11,
+                b = 22;
+            const obj = {
+                a: 2,
+                b: 9,
+                c: 10,
+            };
+            ({ a, b } = obj);
+            console.log(a, b);
+
+            // Optional Chaining
+            const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+            for (const day of days) {
+                // console.log(day);
+                const open = hotel.openingHours[day]?.open ?? "closed";
+                console.log(`${day} opens at ${open}`);
+            }
+        </script>
+    </body>
+</html>

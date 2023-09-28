@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping over objects</title>
+</head>
+
+<body>
+    <script>
+        const openingHours = {
+            thus: {
+                open: 12,
+                close: 22,
+            },
+
+            fri: {
+                open: 11,
+                close: 23,
+            },
+            sat: {
+                open: 0,
+                close: 24,
+            },
+        };
+        // KEYS
+        console.log(openingHours);
+        const keys = Object.keys(openingHours);
+        console.log(keys);
+        for (const i of keys) {
+            console.log(i);
+        }
+        let str = "We are open on "
+        console.log(`${str} ${keys.length} days`)
+
+
+        // Values
+        const values = Object.values(openingHours);
+        console.log(values);
+
+        // Entire objects
+        const entries = Object.entries(openingHours);
+        console.log(entries);
+        for ([j, { open, close }] of entries) {
+            console.log(`We open on ${j} at ${open} and close at ${close}`);
+        }
+    </script>
+</body>
+
+</html>

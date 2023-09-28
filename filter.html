@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Filter</title>
+    </head>
+    <body>
+        <script>
+            const movements = [23, 242, 52, 6, -12, -235];
+            const depoist = movements.filter(function (mov) {
+                return mov > 0;
+            });
+            console.log(depoist);
+        </script>
+    </body>
+</html>

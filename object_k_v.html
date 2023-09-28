@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const openingHours = {
+                thu: {
+                    open: 12,
+                    close: 22,
+                },
+                fri: {
+                    open: 11,
+                    close: 23,
+                },
+                sat: {
+                    open: 0,
+                    close: 24,
+                },
+            };
+            const hotel = {
+                name: "Cloud9 Hotel",
+                address: ["LakeSide ,Pokhara", "Nadipur -3", "Zero"],
+                items: ["Pizza", "Burger", ["Chicken Sousage", "Buff Sousage"]],
+                view: ["Lake", "Town", "Hills", "Mountains"],
+                order: function (items1index, item2index, item3index) {
+                    // Retur an array
+                    return [
+                        this.items[items1index],
+                        this.items[item2index],
+                        this.items[item3index],
+                    ];
+                },
+                // Enhanced ES6 Features
+                openingHours,
+                // Default
+                orderDelivery({
+                    order1 = 1,
+                    order2 = 2,
+                    time = "0.00",
+                    address = this.address[0],
+                }) {
+                    console.log(order1, order2, time, address);
+                    console.log(order2);
+                    console.log(
+                        `Order is ${this.items[order1]} and ${this.items[order2]} at time ${time}`
+                    );
+                },
+            };
+            // Property Keys
+            const keys = Object.keys(openingHours);
+            console.log(keys);
+
+            let openStr = `We are  open on ${keys.length} days `;
+            for (const day of keys) {
+                openStr += ` ${day},`;
+            }
+            console.log(openStr);
+
+            //Property Values
+            const val = Object.values(openingHours);
+            console.log(typeof val);
+            for (const { open, close } of val) {
+                console.log(`We open at ${open} and closed at ${close}`);
+            }
+
+            //Entire object[key,value]
+            const entire = Object.entries(openingHours);
+            console.log(entire);
+            for (const [days, { open, close }] of entire) {
+                console.log(`${days} we open on ${open} and close on ${close}`);
+            }
+        </script>
+    </body>
+</html>

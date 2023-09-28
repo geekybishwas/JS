@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <div>
+        <p>
+            This is p tag
+        </p>
+    </div>
+    <script type="text/javascript">
+        var name = "GCES";
+        name = 1;
+        console.log(name);
+
+        //Difference between var and let keyword
+        //1. Scope
+
+        var x = 3;
+        document.write(x, "\n");
+        if (true) {
+            var x = 4;
+            var x = "ok"
+        }
+
+        document.write(x, "\n"); // It prints ok.
+        if (true) {
+            let y = 5;
+            document.write(y, "\n"); // It prints 5
+        }
+        document.write(y, "\n") // It's prints error in the console becuse the varibale y isnot declared anywhere , it is declared but inside the loop or inside a funcion.
+        let y = 2;
+        document.write(y, "\n"); // It prints 2 because the let is a block scoped 
+        document.write(x, "\n"); // It prints ok , why it prints ok when thr vax x= "ok" is declared insile the loop and var x=3 is declared ouside it was supposed to print 3 but why ok because the var is a function block it can be declared many times and it takes preference to that value which is declared at the last whether it is declared inside or outside.
+        window.alert(5 + 6);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Short Circuiting</title>
+    </head>
+
+    <body>
+        <script>
+            "use strict";
+            const aboutMe = {
+                fName: "Bishwas",
+                lName: "Bhattarai",
+                age: 19,
+                birthyear: 2003,
+                passion: {
+                    fPassion: "Hacker",
+                    sPassion: "Developer",
+                },
+                intrestedIn: {
+                    game1: {
+                        gameName: "football",
+                        totalPlayer: 12,
+                    },
+                    game2: {
+                        gameName: "basketball",
+                        totalPlayer: 12,
+                    },
+                    game3: {
+                        gameName: "tt",
+                        totalPlayer: {
+                            x: "2 player",
+                            y: "4 player",
+                        },
+                    },
+                },
+                myself: function () {
+                    console.log("Here i write about me in details");
+                },
+            };
+            /*NOTE
+                                  OR and NOT operator not only return boolean values it return all types of values like int , string and other also*/
+            console.log(3 < 4 || 4 > 3);
+            console.log(3 < 4 && 2 < 4);
+            /*NOTE
+                                  Use any data type , return any data type ,
+                                  it do short-circuiting , short circuiting means if it catches the truly value then it not go to execute further
+                                  */
+            console.log("-------OR-------");
+            console.log(3 || "Bishwas"); // Expected output :3
+            console.log("" || "Bishwas"); // EXPECTED OUTPUT : Bishwas
+            console.log(true || 0); // Output : true
+            console.log(undefined || null); //Output:null
+            aboutMe.items = 12;
+            console.log(aboutMe.items || 20);
+            console.log("------AND-------");
+            /*NOTE
+                      AND operator immediately returns the falsy value when encounter without evne evalutating the second operand.
+                      ->When both operand is truly it returns the last operand.
+                      */
+            console.log(undefined && "Bishwas");
+
+            console.log(7 && "Bishwas"); // Expected output : Bishwas
+            console.log("Hey" && 24 && null && "Bishwas"); // Expected output: null
+            aboutMe.myself && aboutMe.myself(); // Expected output: call function
+
+            aboutMe.num = 0;
+            const guests = aboutMe.num || 10;
+            console.log(guests);
+
+            //Nullish Operator : null and undefined (NOT 0 or '')
+            const guestCorrect = aboutMe.num ?? 10;
+            console.log(guestCorrect);
+        </script>
+    </body>
+</html>

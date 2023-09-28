@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function in JS</title>
+</head>
+
+<body>
+    <script>
+        function logger() {
+            console.log("Function calling");
+        }
+        // calling
+        logger();
+        logger();
+        logger();
+
+        // Function with arguments and return type
+        function fruit(app, ora) {
+            console.log(app, ora);
+            const juice = `Juice with ${app} apples and ${ora} orange`;
+            return juice;
+        }
+        const apjuice = fruit(5, 0);
+        console.log(apjuice);
+
+        // Function declaration
+
+        // In funtion declaration we can call a function before we define it but in funtion experssion we cannot call a function before we define it .
+
+        function calHeight1(height) {
+            return height;
+        }
+        console.log(calHeight1);
+        const height1 = calHeight1(20);
+        console.log(height1);
+
+        // Function Expressions
+
+        const calHeight2 = function (height) {
+            return height;
+        }
+        const height2 = calHeight2(30);
+
+        console.log(height1, height2);
+
+        // Arrow Function
+        const arrowFun = (fullname, age) => {
+            const show = `Your name is ${fullname} and age is ${age}`;
+            return show;
+        }
+        console.log(arrowFun("Bishwas B", 19));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Conversion and Coercion</title>
+</head>
+
+<body>
+    <script>
+        // Type conversion is the conversion of one data type in to another by the user ike a intger into float.
+
+        const inputYear = '1991';
+
+        console.log(Number(inputYear), inputYear); // It prints a number 1991 and a string 1991 in the console.
+
+        console.log(Number(inputYear) + 18); //Expected output 2009 as a number not a string
+
+        // Is it possible to convert a string into a number ? Let's see
+        console.log(Number('Bishwas')); // Output : NaN , Not a Number means invalid number
+
+        console.log(typeof(NaN));
+
+        // Convert number to a string
+        console.log(String(23), 23);
+
+        //  Type coercion is the coercion where JS automatically converts the type for us.
+
+        console.log("I am " + 23 + " years old") // Its called type coercion JS automatically convert a number 23 into a string and concatenate it.Note: The + operator between the number converts the number into a string and whereas - operator between a string converts a string to a number.
+
+        console.log('23' - '10' - 3)
+
+        console.log('2' * '2'); // Does it print output in a string ? No it prints the output in a number
+
+        console.log('4' / '2')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fucntion in an object</title>
+</head>
+
+<body>
+    <script>
+        const bio = {
+            firstName: 'Bishwas',
+            lastName: 'Bhattarai',
+            birthYear: 2003,
+            profession: 'programmer',
+            friends: ['Bipin', 'Bhotey', 'Boka', 'Datey', 'Ram'],
+            hasDriverLicense: true,
+
+            // A function which is attached to a object is known as method
+
+            // calage: function() {
+            //     console.log(this);
+            //     return 2022 - this.birthYear;
+            // }
+
+            // calage: function() {
+            //     console.log(birthYear);
+            //     return 2022 - birthYear;
+            // };
+
+            calage: function() {
+                this.age = 2022 - this.birthYear;
+                return this.age;
+            },
+            getsummmary: function() {
+                if (this.hasDriverLicense) {
+                    this.summary = `${this.firstName} is a ${this.age} old ${this.profession}, and he has a driver license`;
+                    return this.summary;
+                } else {
+                    this.summary = `${this.firstName} is a ${this.age} old ${this.profession}, and he has no driver license`;
+                    return this.summary;
+                }
+            }
+        }
+        console.log(bio.calage());
+        console.log(bio.getsummmary())
+        console.log(bio.age);
+        console.log(bio.getsummmary());
+        console.log(bio.summary);
+        // console.log(bio['calage']());
+        console.log(bio);
+
+        // // Questions
+        // // Bishwas is a 19-years old programmer , and he has a driver's license.
+        // console.log(bio.getsummmary());
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let arr = ["a", "b", "c", "d", "e"];
+
+            //Slice method returns a shallow copy of a array(Doesn't mutate the original array)
+            console.log(arr.slice());
+            console.log(arr.slice(1, -2));
+
+            //Spred operator also returns the shallow copy of array
+            console.log([...arr]);
+
+            //Splice ->it does actually change the original array->mutate the original array
+
+            // console.log(arr.splice(2));
+            arr.splice(-1);
+            console.log(arr);
+
+            //Reverse ->Mutate the original array
+            let arr2 = ["e", "f", "g", "h", "i"];
+            console.log(arr2.reverse());
+
+            //Concat , it doesn't mutate the original array
+            const letters = arr.concat(arr2);
+            console.log(letters);
+            console.log([...arr, ...arr2]);
+
+            //Join
+            console.log(letters.join("-"));
+            console.log(letters.push("ff")); // Does return number (like how many elements)
+            letters.shift(); //Remove the element
+            letters.unshift("a"); //Add the element at beginning
+            letters.push("l"); // Add elemnet at the end
+            console.log(letters);
+
+            //At method
+            console.log(arr.at(0)); // Returns element
+
+            //Getting the last arrya element
+            const num = [12, 23, 532, 4221];
+            console.log(num[num.length - 1]);
+            console.log(num.slice(-1)); //It actually returns an array not a value
+            console.log(num.at(-1)); // It actually returns a value
+            console.log("bishwas".at(0));
+        </script>
+    </body>
+</html>

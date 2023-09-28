@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoisting</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        // Varibales
+        console.log(me);
+        // console.log(year);
+        var me = "Bishwas";
+        let job = "programmer";
+        const year = 2003;
+        // Functions
+        console.log(add(2, 3));
+        // console.log(addExpr(2, 3));
+        // console.log(addArrow(2, 3));
+        console.log(addArrow);
+
+        // Function declaration
+        function add(a, b) {
+            return a + b;
+        }
+        const addExpr = function (a, b) {
+            return a + b;
+        };
+        var addArrow = (a, b) => a + b;
+
+        // Example
+        if (!numProducts) deleteShoppingCard();
+
+        var numProducts = 10;
+
+        function deleteShoppingCard() {
+            console.log("All products deleted");
+        }
+        var x = 1;
+        let y = 2;
+        const z = 3;
+        // Variable declared with var are in a global window objects but it is not same for let and const
+        console.log(x === window.x);
+        console.log(y === window.y);
+        console.log(z === window.z);
+    </script>
+</body>
+
+</html>

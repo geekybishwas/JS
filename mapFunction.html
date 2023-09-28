@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Map</title>
+    </head>
+    <body>
+        <script>
+            const euroToUsd = 1.1;
+
+            const movements = [13, 123, 42, -53, 1, -35];
+
+            //Callback function
+            const usd = movements.map(function (mov) {
+                return mov * euroToUsd;
+            });
+
+            //Arrow function
+            const usdArrow = movements.map((mov) => mov * euroToUsd);
+
+            console.log(movements);
+            console.log(usd);
+            console.log(usdArrow);
+
+            const movUSD = [];
+            for (const mov of movements) {
+                movUSD.push(mov * euroToUsd);
+            }
+            console.log(movUSD);
+
+            //Map with forEach function , can get access to element,index,and array
+            const movWithforEach = movements.map((mov, i, arr) => {
+                if (mov > 0) {
+                    return `Movement ${i + 1}:You depoisted ${mov}`;
+                } else {
+                    return `Movement ${i + 1}:You withdraw ${Math.abs(mov)}`;
+                }
+            });
+
+            console.log(movWithforEach);
+
+            const user = "Steven Thomas Williams";
+
+            const userName = user
+                .toLowerCase()
+                .split(" ")
+                .map((name) => name[0])
+                .join("");
+            console.log(userName);
+        </script>
+    </body>
+</html>

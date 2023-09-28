@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // const resturant = new Map();
+            // resturant.set("Name", "Cloud9");
+            // resturant.set(1, "Pokhara");
+            // resturant.set(2, "Ktm");
+            // resturant
+            //     .set("categories", ["Italian", "Pizzeria", "Organic"])
+            //     .set("Open", 11)
+            //     .set("Close", 23)
+            //     .set(true, "I'm on")
+            //     .set(false, "I'm out");
+            // console.log(resturant.get(true));
+            // console.log(resturant.get(2));
+            // console.log(resturant.has(2));
+            // resturant.delete(2);
+            // console.log(resturant);
+            // resturant.clear();
+            // console.log(resturant);
+            const hotel = {
+                Name: "CLoud9",
+                openingHours: {
+                    thus: {
+                        open: 12,
+                        close: 22,
+                    },
+
+                    fri: {
+                        open: 11,
+                        close: 23,
+                    },
+                    sat: {
+                        open: 0,
+                        close: 24,
+                    },
+                },
+            };
+            const me = new Map([
+                ["Name", "Cloud9"],
+                ["Age", 20],
+                ["Rollno", 16],
+                ["Subject", "Software"],
+                ["Collage", "GCES"],
+                ["Passion", "Programmer"],
+            ]);
+            me.delete("Collage");
+            console.log(me);
+            //Convert object to maps
+            const convert = new Map(Object.entries(hotel.openingHours));
+            console.log(convert);
+
+            //Maps are iteratable
+            for (const [key, value] of me) {
+                console.log(`${key}: ${value}`);
+            }
+            //Convert map to array
+            console.log([...me]);
+            // console.log([...me.entries()]);
+            console.log([...me.values()]);
+            console.log([...me.keys()]);
+        </script>
+    </body>
+</html>

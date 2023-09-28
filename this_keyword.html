@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>This Keyword</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        console.log(this);
+        const calAge = function(birthYear) {
+            console.log(2037 - birthYear);
+            console.log(this);
+        };
+        calAge(1991); // In a regular function call this keyword is undefined only in a strict mode.
+        const calAgeArrow = (birthYear) => {
+            console.log(2037 - birthYear);
+            // Arrow function dont have its this keyword so it will look up to its parent element
+            // Below console.log(this) a this keyword of its parent/
+            console.log(this);
+        };
+        calAgeArrow(1920);
+        const me = {
+            year: 2003,
+            // Here calAge is a method
+            calAge: function() {
+                console.log(this);
+                console.log(2022 - this.year);
+            },
+        };
+        // It will show the object of me beacuse me is the object that call the method.
+        // this keyword will point the object that is calling the method.
+        me.calAge();
+
+        const mine = {
+            year: 2017,
+        };
+        // Method borrowing , copying calAge method from me to mine
+        mine.calAge = me.calAge;
+        mine.calAge();
+        const f = me.calAge;
+    </script>
+</body>
+
+</html>

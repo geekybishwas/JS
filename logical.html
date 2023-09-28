@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const rest1 = {
+                name: "Clou9",
+                numGuests: 0,
+            };
+            const rest2 = {
+                name: "Jikki",
+                owner: "Bishwash",
+            };
+
+            // OR Assignment Operator
+            // rest1.numGuests ||= 10;
+            // console.log(rest1);
+            // rest1.numGuests ||= 10;
+            // console.log(rest2);
+
+            // Nullish Assignment Operator
+            rest1.numGuests ??= 10;
+            rest2.numGuests ??= 10;
+            console.log(rest1);
+            console.log(rest2);
+        </script>
+    </body>
+</html>

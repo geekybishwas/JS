@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const secureBooking = function () {
+                let passengerCount = 0;
+                return function () {
+                    passengerCount++;
+                    console.log(`${passengerCount} passenger`);
+                };
+            };
+
+            const booker = secureBooking();
+
+            booker();
+            booker();
+
+            //More about closure
+            let f;
+            const h = function () {
+                const a = 2;
+                f = function () {
+                    console.log(a * 2);
+                };
+            };
+
+            const g = function () {
+                const b = 4;
+                //Closure
+                f = function () {
+                    console.log(b * 10);
+                };
+            };
+
+            h();
+            f();
+            console.dir(f);
+
+            g();
+            f();
+            console.dir(f);
+
+            //Example 2
+            const boardPassenger = function (n, wait) {
+                const perGrounp = n / 2;
+                //Closure
+                setTimeout(function () {
+                    console.log(`There are ${n} number of passengers`);
+                    console.log(
+                        `There are 2 groups , each of ${perGrounp} passenger`
+                    );
+                }, wait * 1000);
+                console.log(`Will start boarding in ${wait} seconds`);
+            };
+
+            const perGrounp = 1000;
+            boardPassenger(180, 3);
+        </script>
+    </body>
+</html>

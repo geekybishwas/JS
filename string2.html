@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const intro =
+                "My name is Bishwash Bhattarai, i am from Pokhara , Bishwash";
+            const lowerIntro = intro.toLowerCase();
+            console.log(lowerIntro);
+            console.log(intro.toUpperCase());
+            console.log(lowerIntro.includes("bishwash"));
+            console.log(lowerIntro.startsWith("my"));
+            console.log(lowerIntro.endsWith("pokhara"));
+            console.log(lowerIntro.replaceAll("bishwash", "Cloud9"));
+            console.log(lowerIntro.replace(/bishwash/g, "Cloud9"));
+            console.log("Jonas".toUpperCase().includes("J"));
+
+            // Split
+            const me = "Bishwash+Bhattarai".toLowerCase();
+            const result = me.split("+");
+            console.log(result);
+            const capitalizaName = function (name) {
+                const names = name.split(" ");
+                console.log(names);
+                const namesUpper = [];
+                for (n of names) {
+                    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+                    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+                }
+                console.log(namesUpper.join(" "));
+            };
+            capitalizaName("jonas smith ann bahadur");
+            capitalizaName("bishash poudel bahadur bhandari bhattarai");
+
+            //Join
+            const hey = ["My", "Name", "Is", "Bishwash", "Bhattarai"];
+            console.log(hey.join(" "));
+
+            //Padding
+            const message = "Got it";
+            console.log(message.padStart(25, "+"));
+            console.log("Bishwash".padStart(25, "-"));
+
+            const maskCredit = function (number) {
+                const str = number + "";
+                const last = str.slice(-4);
+                return last.padStart(str.length, "*");
+            };
+            console.log(maskCredit(4549394994939203293));
+            console.log(maskCredit("454933434344234233"));
+            console.log(maskCredit(4549334));
+
+            // Repeat
+            const message1 = "Bad Whether\n";
+            console.log(message1.repeat(5));
+        </script>
+    </body>
+</html>

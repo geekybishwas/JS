@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const orderSet = new Set([
+                "Pizza",
+                "Pasta",
+                "Momo",
+                "Pizza",
+                "Pizza",
+                "Pasta",
+                "Chaumin",
+            ]);
+            console.log(orderSet);
+            console.log(orderSet.size);
+            console.log(new Set("Bishwash"));
+            console.log(orderSet.has("Pizza"));
+            console.log(orderSet.has("Chauchau"));
+            orderSet.add("Biscuit"); // Add
+            orderSet.delete("Chaumin"); // Delete
+            console.log(orderSet);
+            for (let i of orderSet) {
+                console.log(i);
+            }
+        </script>
+    </body>
+</html>
