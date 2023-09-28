@@ -7,7 +7,19 @@
     </head>
     <body>
         <script>
-            const movements = [200, 23, 12, -13, -422];
+            const movements = [200, 23, 12, -13, -42];
+            const balance = movements.reduce(function (acc, cur, i, arr) {
+                console.log(`Iteration ${i},acc is ${acc}`);
+                return acc + cur;
+            }, 0);
+            console.log(balance);
+
+            //Get Maximum value of movements
+            const max = movements.reduce((acc, mov) => {
+                if (acc > mov) return acc;
+                else return mov;
+            }, movements[0]);
+            console.log(max);
         </script>
     </body>
 </html>
