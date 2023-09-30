@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //Strings
+            const owner = ["geeky", "Bishwas", "Shivv", "Mahadev", "Adam"];
+
+            console.log(owner.sort());
+
+            //Sort method first convert everything to string and sort
+
+            //Sorting array with Numbers
+            const numbers = [1, 2, 344, 44, 2, -23, -3242, -24];
+
+            //return < 0,A,B (keep the same order)]
+            //return >0 B,A (switch the order)
+
+            //Ascending
+            numbers.sort((a, b) => {
+                if (a < b) return -1;
+                if (a > b) return 1;
+            });
+
+            //OR
+
+            numbers.sort((a, b) => a - b);
+
+            console.log(numbers);
+
+            //Descending
+            numbers.sort((a, b) => {
+                if (a > b) return -1;
+                if (a < b) return 1;
+            });
+
+            //OR
+
+            numbers.sort((a, b) => b - a);
+
+            console.log(numbers);
+        </script>
+    </body>
+</html>
