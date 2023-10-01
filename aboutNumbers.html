@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            //Numbers Conversion
+            console.log(Number("23")); //Convert into Number
+            console.log(+"23"); //Convert into number
+
+            //Parsing
+            console.log(Number.parseInt("20px")); //Result = 23 ,for this to work the string must start with numbers
+
+            console.log(Number.parseFloat("2.3rem"));
+
+            //Check if cal is NaN
+            console.log(Number.isNaN(20));
+            console.log(Number.isNaN("20"));
+            console.log(Number.isNaN("sdf"));
+
+            //Checking if the value is a Number or not
+            console.log(Number.isFinite(20));
+            console.log(Number.isFinite("20"));
+            console.log(Number.isFinite(23 / 0));
+
+            console.log(Number.isInteger(20));
+
+            console.log(Math.sqrt(25));
+
+            console.log(25 ** (1 / 2));
+
+            console.log(Math.max(5, 28, 495, 434, 53));
+
+            console.log(Math.min(53, "2", 34, 6, 3, 45));
+
+            console.log(Math.trunc(Math.random() * 6) + 1);
+
+            const randomInt = (min, max) =>
+                Math.trunc(Math.random() * (max - min) + 1) + min;
+
+            console.log(randomInt(10, 20));
+
+            //Rounding Integers
+            console.log(Math.trunc(23.3));
+
+            console.log(Math.round(23.3));
+
+            console.log(Math.round(23.9));
+
+            console.log(Math.ceil(23.3)); //Rounded upto 24
+            console.log(Math.ceil(23.6));
+
+            console.log(Math.floor(23.3)); //ROunded down
+            console.log(Math.floor(23.8));
+
+            console.log(Math.trunc(-23.3));
+            console.log(Math.floor(-23.3));
+
+            //Rounding Decimals
+            console.log((2.7).toFixed(0)); //toFixed returns a string
+            console.log(+(3.4).toFixed(0)); //Converting the returned string into nmmber by simply adding + sign
+
+            //BigInt
+
+            console.log(2 ** 53 - 1);
+            console.log(Number.MAX_SAFE_INTEGER);
+
+            console.log(4333333333333333333333333333333323n); //At the end ,n denotes that this number is BigInt
+
+            console.log(BigInt(23242342422314242));
+
+            //We can also do normal operation with BigInt,if both the operand is BigInt numbers
+            console.log(23n === 23);
+            console.log(23n == 23);
+
+            console.log(10n / 3n); //Result:3n,it trunck the decimal part
+        </script>
+    </body>
+</html>
