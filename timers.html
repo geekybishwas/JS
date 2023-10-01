@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SetTimeOut and Interval in JS</title>
+    </head>
+    <body>
+        <p class="display"></p>
+        <script>
+            //It takes two arguments
+            setTimeout(
+                () => console.log("I will display after 3000 milliseconds"),
+                3000
+            );
+
+            //With arguments
+            setTimeout(
+                (a, b) => console.log(`I get two numbers ${a} and ${b}`),
+                4000,
+                12,
+                23
+            );
+
+            const arr = [1, 2];
+
+            const testClaerTimeOut = setTimeout(
+                (a, b) => console.log(`I get two numbers ${a} and ${b}`),
+                4000,
+                ...arr
+            );
+
+            if (arr.includes(2)) clearTimeout(testClaerTimeOut);
+
+            //setInerval function executes every specified sec
+            setInterval(() => {
+                console.log("I will display every 2 sec");
+            }, 2000);
+
+            const getting = document.querySelector(".display");
+
+            setInterval(() => {
+                const now = new Date();
+                const day = now.getDate();
+                const sec = now.getSeconds();
+
+                const displayTime = `${day}:${sec}`;
+                getting.textContent = displayTime;
+            }, 1000);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dates in JS</title>
+    </head>
+    <body>
+        <script>
+            //Working with dates
+            const dates = new Date(2030, 11, 23, 12, 43, 55);
+            console.log(dates);
+
+            console.log(dates.getFullYear());
+            console.log(dates.getMonth());
+            console.log(dates.getDate()); //Prints date of the month
+            console.log(dates.getDay()); //Prints date of the week
+            console.log(dates.getHours());
+            console.log(dates.getMinutes());
+            console.log(dates.getSeconds());
+            console.log(dates.toISOString());
+            console.log(dates.getTime());
+
+            console.log(new Date(2312323232321));
+
+            console.log(Date.now());
+
+            const now = new Date();
+            // console.log(now); //Print current date
+        </script>
+    </body>
+</html>
