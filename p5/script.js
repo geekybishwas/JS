@@ -175,3 +175,29 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 });
 
 //Tabbed Component
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations_content");
+
+tabsContainer.addEventListener("click", function (e) {
+    const clicked = e.target.closest(".operations__tab");
+
+    //Guard Clause
+    if (!clicked) return;
+
+    //Remove Active tab
+    tabs.forEach((t) => t.classList.remove("operations__tab--active"));
+
+    //Remove content areeas
+    tabsContent.forEach((c) => {
+        c.classList.remove("operations__content--active");
+    });
+
+    //Active tab
+    clicked.classList.add("operations__tab--active");
+
+    //ACTIVE content areas
+    document
+        .querySelector(`.operations__content--${clicked.dataset.tab}`)
+        .classList.add("operations__content--active");
+});
