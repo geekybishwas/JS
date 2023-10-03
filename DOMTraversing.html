@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="header_title">
+                <h1>
+                    Hey
+                    <span class="highlight">Buddy</span> keep it
+                    <br />
+                    <span class="highlight">up</span>
+                </h1>
+                <h4>Welcome to Traversing</h4>
+            </div>
+        </header>
+    </body>
+    <script>
+        const h1 = document.querySelector("h1");
+        console.log(h1);
+
+        //goiing downwards:child
+        //Select all the child element of h1 whose class matches to hightlight
+        console.log(h1.querySelectorAll(".highlight"));
+
+        console.log(h1.childNodes);
+
+        console.log(h1.childElementCount); //Count the number of child
+
+        console.log(h1.children);
+
+        h1.firstElementChild.style.color = "orangered";
+        h1.lastElementChild.style.color = "purple";
+
+        //Going upwards :parents
+        console.log(h1.parentNode);
+        console.log(h1.parentElement);
+
+        //Select the closest parent element that has a class name header
+        //Closest method finds parent no matter how far it is
+        h1.closest(".header").style.background = "orange";
+
+        //going sideways:siblings
+        console.log(h1.previousElementSibling);
+        console.log(h1.nextElementSibling);
+
+        console.log(h1.parentElement.children); //Returns all siblings of h1 including itself
+    </script>
+</html>
