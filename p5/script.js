@@ -241,9 +241,11 @@ nav.addEventListener("mouseout", handleHover.bind(1));
 
 //Sticky navigation: Intersection Observer API
 
+const navHeight = nav.getBoundingClientRect().height;
+// console.log(navHeight);
 const stickNav = function (entries) {
     const [entry] = entries;
-    console.log(entry);
+    // console.log(entry);
 
     if (!entry.isIntersecting) nav.classList.add("sticky");
     else nav.classList.remove("sticky");
@@ -252,7 +254,59 @@ const stickNav = function (entries) {
 const headerObserver = new IntersectionObserver(stickNav, {
     root: null,
     threshold: 0,
-    rootMargin: "-90px",
+    rootMargin: `${-navHeight}px`,
 });
 
 headerObserver.observe(header);
+
+//Reveal section
+/* When you create an IntersectionObserver and specify a callback function, this callback function will be called initially for each observed target element that meets the criteria you specified. This means that when you first set up the observer, it will immediately call the callback function for all elements that are already in the viewport or meet the intersection criteria, even if no scrolling or intersection changes have occurred.*/
+const revealSection = function (entries, observer) {
+    const [entry] = entries;
+    console.log(entry);
+
+    if (!entry.isIntersecting) return;
+    entry.target.classList.remove("section--hidden");
+
+    observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+    root: null,
+    threshold: 0.15,
+});
+allSections.forEach(function (section) {
+    sectionObserver.observe(section);
+    section.classList.add("section--hidden");
+});
+
+// document.querySelectorAll("img[data_src]"); //Select all img tag whose has a property of data_src
+
+// Lazy Loading Images
+const imgTarget = document.querySelectorAll(".lazy-img");
+console.log(imgTarget);
+
+const loadImage = function (entries, observer) {
+    const [entry] = entries;
+
+    if (!entry.isIntersecting) return;
+
+    //Replace src with data-src
+    entry.target.src = entry.target.dataset.src;
+
+    //When the browser finish loadig a images,it emit a load function
+    entry.target.addEventListener("load", function () {
+        entry.target.classList.remove("lazy-img");
+    });
+
+    observer.unobserve(entry.target);
+};
+
+const imageObserver = new IntersectionObserver(loadImage, {
+    root: null,
+    threshold: 0.9,
+});
+
+imgTarget.forEach(function (image) {
+    imageObserver.observe(image);
+});
