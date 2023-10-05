@@ -46,4 +46,6 @@ const getCountryName = function (name) {
 
 getCountryName("nepal");
 
-getCountryName("portugal");
+getCountryName("china");
+
+getCountryName("india");
