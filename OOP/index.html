@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Object Oriented in JS</title>
+    </head>
+    <body>
+        <script>
+            const Person = function (firstName, birthYear) {
+                this.firstName = firstName;
+                this.birthYear = birthYear;
+            };
+
+            const geeky = new Person("geeky", 1987);
+            const bishwas = new Person("Bishwas", 2002);
+
+            console.log(geeky, bishwas);
+
+            //Prototypes
+            //All the object of Person can use the methods defined in prototype
+            //Person.prototype is a prototype of Person object not a prototype of person
+            Person.prototype.calAge = function () {
+                console.log(2034 - this.birthYear);
+            };
+
+            geeky.calAge();
+
+            console.log(geeky.__proto__);
+
+            console.log(geeky.__proto__ === Person.prototype);
+
+            console.log(Person.prototype.isPrototypeOf(geeky));
+            console.log(Person.prototype.isPrototypeOf(Person));
+
+            //Setting properties to prototype
+            Person.prototype.clz = "GCES";
+
+            console.log(geeky, bishwas);
+
+            console.log(
+                geeky.hasOwnProperty("firstName"), //return ture coz firstName is a property of geeky
+                geeky.hasOwnProperty("clz") //returns false,coz clz is not a property of geeky object
+            );
+
+            //Prototype of array
+            const arr = [2, 45, 56, 23, 62, 3, 2, 3, 45];
+            console.log(arr.__prototype__);
+
+            //Adding a new function in array prototype
+            Array.prototype.unique = function () {
+                return [...new Set(this)];
+            };
+
+            console.log(arr.unique());
+        </script>
+    </body>
+</html>
