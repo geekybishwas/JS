@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const whereAmI = function (lat, lng) {
+                fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+                    .then((response) => {
+                        if (!response.ok)
+                            throw new Error(
+                                `Problem with geocoding ${response.status}`
+                            );
+                        return response.json();
+                    })
+                    .then((data) => {
+                        const getCountry = data.country;
+                        console.log(
+                            `You are in city ${data.city} ,${getCountry}.`
+                        );
+                        console.log(data);
+                    })
+                    .catch((error) => {
+                        console.error(`${error.msg}`);
+                    });
+            };
+
+            whereAmI(52.508, 13.381);
+            whereAmI(19.037, 72.873);
+            whereAmI(-33.933, 18.474);
+        </script>
+    </body>
+</html>
