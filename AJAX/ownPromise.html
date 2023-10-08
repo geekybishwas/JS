@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Own Promise in JS</title>
+    </head>
+    <body>
+        <script>
+            const lotteryPromise = new Promise(function (resolve, reject) {
+                console.log("Lottery ticket is happening");
+                setTimeout(function () {
+                    if (Math.random() >= 0.6) {
+                        resolve("You win a lottery");
+                    } else {
+                        reject(new Error("You lost"));
+                    }
+                }, 2000);
+            });
+
+            //Handling a resolved value
+            lotteryPromise
+                .then((res) => console.log(res))
+                .catch((err) => console.error(err));
+
+            //It will resolve immediately.
+            Promise.resolve("You won").then((dda) => console.log(dda));
+
+            Promise.reject(new Error("You lost your money and time")).catch(
+                (data) => console.error(data)
+            );
+
+            //Gets the current position of the user,it accepts two call back, one for success and another for deny
+            navigator.geolocation.getCurrentPosition(
+                (position) => console.log(position),
+                (err) => console.log(err)
+            );
+        </script>
+    </body>
+</html>

@@ -195,7 +195,53 @@ const whereAmI = function (lat, lng) {
             console.error(`${error.msg}`);
         });
 };
-
 whereAmI(52.508, 13.381);
-whereAmI(19.037, 72.873);
-whereAmI(-33.933, 18.474);
+
+//Gets the current position of the user,it accepts two call back, one for success and another for deny
+navigator.geolocation.getCurrentPosition(
+    (position) => console.log(position),
+    (err) => console.log(err)
+);
+
+//Promisifying geolocation
+const getPosition = function () {
+    return new Promise(function (resolve, reject) {
+        // navigator.geolocation.getCurrentPosition(
+        //     (position) => resolve(position),
+        //     (err) => reject(err)
+        // );
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+};
+/*
+getPosition()
+    .then((data) => console.log(data.coords))
+    .catch((err) => console.error(err));
+*/
+
+//Jumping into next Step without specifying the lag,lng
+
+const whereIAm = function () {
+    getPosition()
+        .then((pos) => {
+            const { latitude: lat, longitude: lng } = pos.coords;
+
+            return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+        })
+        .then((response) => {
+            if (!response.ok)
+                throw new Error(`Problem with geocoding ${response.status}`);
+            return response.json();
+        })
+        .then((data) => {
+            const getCountry = data.country;
+            console.log(`You are in city ${data.city} ,${getCountry}.`);
+            console.log(data);
+            getCountryData(getCountry);
+        })
+        .catch((error) => {
+            console.error(`${error.msg}`);
+        });
+};
+
+whereIAm();
