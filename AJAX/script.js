@@ -195,13 +195,13 @@ const whereAmI = function (lat, lng) {
             console.error(`${error.msg}`);
         });
 };
-whereAmI(52.508, 13.381);
+// whereAmI(52.508, 13.381);
 
 //Gets the current position of the user,it accepts two call back, one for success and another for deny
-navigator.geolocation.getCurrentPosition(
-    (position) => console.log(position),
-    (err) => console.log(err)
-);
+// navigator.geolocation.getCurrentPosition(
+//     (position) => console.log(position),
+//     (err) => console.log(err)
+// );
 
 //Promisifying geolocation
 const getPosition = function () {
@@ -244,4 +244,77 @@ const whereIAm = function () {
         });
 };
 
-whereIAm();
+// whereIAm();
+
+//With await function
+
+const whereAmIWithAwait = async function () {
+    try {
+        //Geolocation
+        const pos = await getPosition();
+        const { latitude: lat, longitude: lng } = pos.coords;
+
+        //Reverse Geocoding,get data based on lat and lng
+        const resGeo = await fetch(
+            `https://geocode.xyz/${lat},${lng}?geoit=json`
+        );
+        console.log(resGeo);
+        const dataGeo = await resGeo.json();
+
+        //Country Data
+        const res = await fetch(
+            `https://restcountries.com/v3.1/name/${dataGeo.country}`
+        );
+        // console.log(res);
+        const data = await res.json();
+        // console.log(data);
+        renderCountry(data[0]);
+
+        return `You are in ${dataGeo.city},${dataGeo.country}`;
+    } catch (err) {
+        renderError(err);
+        console.error(`Error Detected: ${err.message}`);
+    }
+};
+
+// whereAmIWithAwait()
+//     .then((data) => console.log(data))
+//     .catch((err) => console.log(err + "deteted"));
+
+//Same as
+
+//IIFE
+// (async function () {
+//     const data = await whereAmIWithAwait();
+//     console.log(data);
+// })();
+
+const getCountries = async function (c1, c2, c3) {
+    try {
+        //Promise.all is a combinator function which allows us to combine multiple promises in parallel
+        const data = await Promise.all([
+            getJSON(`https://restcountries.com/v3.1/name/${c1}`),
+            getJSON(`https://restcountries.com/v3.1/name/${c2}`),
+            getJSON(`https://restcountries.com/v3.1/name/${c3}`),
+        ]);
+        console.log(data);
+        const capital = data.map((d) => d[0].capital);
+        console.log(capital);
+        console.log(capital.map((d) => d[0]));
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+getCountries("Nepal", "Portugal", "Canada");
+
+//Other Promise Combinators
+
+(async function () {
+    const data = await Promise.race([
+        getJSON(`https://restcountries.com/v3.1/name/italy`),
+        getJSON(`https://restcountries.com/v3.1/name/nepal`),
+        getJSON(`https://restcountries.com/v3.1/name/india`),
+    ]);
+    console.log(data[0]);
+})();
