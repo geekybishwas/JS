@@ -23,6 +23,20 @@ btnsOpenModal.forEach((btn) => btn.addEventListener("click", openModal));
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
+// console.log("Heyyyyyyy");
+
+// document.addEventListener("keydown", function (e) {
+//     console.log(e);
+// });
+
+if (modal.classList.contains("hidden")) {
+    console.log("Contains");
+} else {
+    console.log("Doesn't");
+}
+
+// console.log("Endinggggggggg");
+
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && !modal.classList.contains("hidden")) {
         closeModal();
@@ -30,9 +44,11 @@ document.addEventListener("keydown", function (e) {
 });
 
 //Selecting Element
+console.log("Selecting Elements");
 console.log(document.documentElement);
 console.log(document.head);
 console.log(document.body);
+console.log("Ending Selecting Elements");
 
 const header = document.querySelector(".header");
 const allSections = document.querySelectorAll(".section");
@@ -46,6 +62,7 @@ console.log(allButtons);
 const message = document.createElement("div");
 message.classList.add("cookie-message");
 
+console.log("Message showing");
 console.log(message);
 
 message.innerHTML =
@@ -70,8 +87,8 @@ document
 message.style.backgroundColor = "#37383d";
 message.style.width = "130%";
 
-// console.log(getComputedStyle(message).color);
-// console.log(getComputedStyle(message).height);
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
 
 message.style.height =
     Number.parseInt(getComputedStyle(message).height, 10) + 30 + "px";
@@ -94,7 +111,7 @@ console.log(message.style.height);
 
 // const link = document.querySelector(".nav__link--btn");
 // console.log(link.href);
-// console.log(link.getAttribute("href"));
+// console.log(link.getAttribute("class"));
 
 // //Data attributes
 // console.log(logo.dataset.versionNumber);
@@ -112,6 +129,7 @@ const btnScrollTo = document.querySelector(".btn--scroll-to");
 const section1 = document.querySelector("#section--1");
 
 btnScrollTo.addEventListener("click", function (e) {
+    console.log("getBoundingClientRect");
     const s1coods = section1.getBoundingClientRect();
     console.log(s1coods);
 
@@ -167,6 +185,8 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
     //Matching strategy
     if (e.target.classList.contains("nav__link")) {
         const id = e.target.getAttribute("href");
+        console.log("Showing attribute");
+        console.log(e.target.getAttribute("href"));
 
         document.querySelector(id).scrollIntoView({
             behavior: "smooth",
@@ -180,7 +200,9 @@ const tabsContainer = document.querySelector(".operations__tab-container");
 const tabsContent = document.querySelectorAll(".operations_content");
 
 tabsContainer.addEventListener("click", function (e) {
+    console.log(e.target);
     const clicked = e.target.closest(".operations__tab");
+    console.log(e.target.closest(".operations__tab"));
 
     //Guard Clause
     if (!clicked) return;

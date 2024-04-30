@@ -175,7 +175,7 @@ const getCountryData = function (country) {
         );
 };
 
-// getCountryData("Bhutan");
+getCountryData("Bhutan");
 
 //Get country name using geocoding api
 const whereAmI = function (lat, lng) {
@@ -292,6 +292,7 @@ const whereAmIWithAwait = async function () {
 const getCountries = async function (c1, c2, c3) {
     try {
         //Promise.all is a combinator function which allows us to combine multiple promises in parallel
+        //Promise.all short circuit if there is one error,if there is one rejected promise
         const data = await Promise.all([
             getJSON(`https://restcountries.com/v3.1/name/${c1}`),
             getJSON(`https://restcountries.com/v3.1/name/${c2}`),
@@ -311,10 +312,29 @@ getCountries("Nepal", "Portugal", "Canada");
 //Other Promise Combinators
 
 (async function () {
-    const data = await Promise.race([
+    //Returns array of promise
+    //In Promise.race([]), each promise race against each other
+    //It returns where the promise is resolve or rejected
+    const res = await Promise.race([
         getJSON(`https://restcountries.com/v3.1/name/italy`),
         getJSON(`https://restcountries.com/v3.1/name/nepal`),
         getJSON(`https://restcountries.com/v3.1/name/india`),
     ]);
-    console.log(data[0]);
+    console.log(res[0]);
 })();
+
+//Promise.allSettled
+//It doesn't short circuit ,if any of the promises get rejected,it returns an array of fullfilled promises either they are resolved or rejected
+Promise.allSettled([
+    Promise.resolve("Sucess"),
+    Promise.reject("Error"),
+    Promise.resolve("A Success"),
+]).then((res) => console.log(res));
+
+//Promise.any , it is very similar to Promise.race with the difference that rejected promises are ignored,thereofr the results of promise.any is always gonna be fullfilled promises
+console.log("ss");
+Promise.any([
+    Promise.resolve("Sucess"),
+    Promise.reject("Error"),
+    Promise.resolve("A Success"),
+]).then((res) => console.log(res));
